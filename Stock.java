@@ -23,6 +23,15 @@ public class Stock {
         getCurValue();
     }
 
+    public Stock(String name, URL investingURL, int amount, double bought) {
+        this.name = name;
+        this.investingURL = investingURL;
+        this.amount = amount;
+        this.bought = bought;
+        curValue = -1;
+        getCurValue();
+    }
+
     private final int MINUTES_DIFFERENCE = 10;
 
     /**
@@ -51,6 +60,16 @@ public class Stock {
             System.out.println("Error with the url/site.");
             lastUpdate = null;
             curValue = -1;
+        }
+    }
+
+    /**
+     * update the name
+     * @param name a non empty name
+     */
+    public void updateName(String name){
+        if( name != null && !name.isEmpty()){
+            this.name= name;
         }
     }
 
