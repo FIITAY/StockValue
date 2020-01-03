@@ -14,8 +14,8 @@ public class Stock {
     private Date lastUpdate;
     private double curValue;
 
-    public Stock(String name, URL investingURL, int amount, double bought) {
-        this.name = name;
+    public Stock(URL investingURL, int amount, double bought) {
+        this.name = "";
         this.investingURL = investingURL;
         this.amount = amount;
         this.bought = bought;
@@ -72,8 +72,16 @@ public class Stock {
         String line = null;
         // read each line
         while ((line = br.readLine()) != null) {
+            //if name is null- update the name also
+            if(name.isEmpty() && line.contains("<h1")){
+                //the actual name is in the next line
+                line = br.readLine();
+                //this line includes the name seperate it right and then insert into name var
+                String[] split = line.split(">");
+                this.name = split[1].split("<")[0];
+            }
             //if the html in this line includes a tag that his id is last_last, this id identifies the value of the stock
-            if(line.indexOf("id=\"last_last\"") != -1){
+            if(line.contains("id=\"last_last\"")){
                 //split the string until i have in value the stock value only
                 String[] split = line.split(">");
                 String temp = split[1].split("<")[0];

@@ -20,13 +20,13 @@ public class Main {
     static boolean initialize(Stock[] stocks){
         try {
             //make new stock object from each stock
-            stocks[0] = new Stock("s&p500", new URL("https://www.investing.com/etfs/harel-sal-4a-sp-500-currency-hedged")
+            stocks[0] = new Stock(new URL("https://www.investing.com/etfs/harel-sal-4a-sp-500-currency-hedged")
                     , 175, 4176.17);
-            stocks[1] = new Stock("s&p500", new URL("https://www.investing.com/etfs/harel-sal-4a-sp-500-currency-hedged")
+            stocks[1] = new Stock(new URL("https://www.investing.com/etfs/harel-sal-4a-sp-500-currency-hedged")
                     , 155, 4983.25);
-            stocks[2] = new Stock("kesem", new URL("https://www.investing.com/funds/kesem-ktf-non-cpi-gvt-bd-fix-intrst")
+            stocks[2] = new Stock(new URL("https://www.investing.com/funds/kesem-ktf-non-cpi-gvt-bd-fix-intrst")
                     , 7487, 9900.06);
-            stocks[3] = new Stock("nasdaq", new URL("https://www.investing.com/etfs/tachlit-sal-4d-nasdaq-100")
+            stocks[3] = new Stock(new URL("https://www.investing.com/etfs/tachlit-sal-4d-nasdaq-100")
                     , 58, 7998.2);
 
         } catch (MalformedURLException mue){
