@@ -1,15 +1,15 @@
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 
 public class ShowInfo {
     private JTable tbInfo;
+    private JFrame frame;
 
-    public ShowInfo(List<Stock> stocks) {
-        String[][] data = parseStocks(stocks);
-        String[] columnNames = {"Name", "Amount","Rate","Worth","Gained"};
-        tbInfo = new JTable(data, columnNames){
+    public ShowInfo(JFrame frame) {
+        this.frame = frame;
+        tbInfo = new JTable(new DefaultTableModel(new String[]{"Name", "Amount","Rate","Worth","Gained"},0)){
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
@@ -20,19 +20,23 @@ public class ShowInfo {
         return tbInfo;
     }
 
-    private String[][] parseStocks(List<Stock> stocks){
-        String[][] out = new String[stocks.size()][5];
-        for (int i = 0; i < stocks.size(); i++) {
-            Stock curr = stocks.get(i);
-            int amount = curr.getAmount();
-            double curValue = curr.getCurValue();
-            double worth =  ((int)(amount*curValue/100 * 100)) / 100.0;
-            out[i][0] =  curr.getName();
-            out[i][1] =  amount   + "";
-            out[i][2] =  curValue + "";
-            out[i][3] =  worth + "";
-            out[i][4] =  (((int)((worth-curr.getBought())*100))/100.0) + "";
-        }
+    private String[] parseStock(Stock stock){
+        String[] out = new String[5];
+        int amount = stock.getAmount();
+        double curValue = stock.getCurValue();
+        double worth =  ((int)(amount*curValue/100 * 100)) / 100.0;
+        out[0] =  stock.getName();
+        out[1] =  amount   + "";
+        out[2] =  curValue + "";
+        out[3] =  worth + "";
+        out[4] =  (((int)((worth-stock.getBought())*100))/100.0) + "";
         return out;
+    }
+
+    public void notify(Stock stock){
+        DefaultTableModel model = (DefaultTableModel) tbInfo.getModel();
+        model.addRow(parseStock(stock));
+        frame.revalidate();
+        frame.repaint();
     }
 }
