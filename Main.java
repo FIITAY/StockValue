@@ -5,16 +5,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        Stock[] stocks =  new Stock[4];
+//        //initialize the stocks into the array and then print the stocks
+//        if(initialize(stocks)){
+//            printStocks(stocks);
+//        }
+//        Scanner s = new Scanner(System.in);
+//        while(!s.next().equals("q")){
+//            printStocks(stocks);
+//        }
+//    }
+    public Stock[] getStocks(){
         Stock[] stocks =  new Stock[4];
         //initialize the stocks into the array and then print the stocks
-        if(initialize(stocks)){
-            printStocks(stocks);
-        }
-        Scanner s = new Scanner(System.in);
-        while(!s.next().equals("q")){
-            printStocks(stocks);
-        }
+        initialize(stocks);
+        return stocks;
     }
 
     static boolean initialize(Stock[] stocks){
@@ -28,6 +34,7 @@ public class Main {
                     , 7487, 9900.06);
             stocks[3] = new Stock(new URL("https://www.investing.com/etfs/tachlit-sal-4d-nasdaq-100")
                     , 58, 7998.2);
+            //"https://www.investing.com/etfs/ishares-s-p-500-usd-info-tech?cid=1148205"
 
         } catch (MalformedURLException mue){
             //one of the urls wasnt accepted

@@ -73,6 +73,18 @@ public class Stock {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public double getBought() {
+        return bought;
+    }
+
     /**
      * gets a stock value from investor.com url
      * @return return the value of the stock OR VALUE_NOT_FOUND as the program need to
@@ -87,7 +99,6 @@ public class Stock {
         InputStream is = uc.getInputStream();
         //make reader that gives me line each time
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
         String line = null;
         // read each line
         while ((line = br.readLine()) != null) {
@@ -116,7 +127,7 @@ public class Stock {
         getCurValue();
         if(curValue != -1){
             out += "rate: "+curValue+"\t";
-            double worth =  ((int)((amount*curValue/100) * 100)) / 100.0;
+            double worth =  ((int)(amount*curValue/100 * 100)) / 100.0;
             out += "worth: "+worth+"\t"
                     +"gained: "+(((int)((worth-bought)*100))/100.0);
         }else{
