@@ -45,16 +45,6 @@ public class Main {
             t.start();
             threads.add(t);
         }
-        boolean isAlive = true;
-        while(isAlive){
-            isAlive = false;
-            //check if one of the threads is alive continue to the next iteration to wait for all of them
-            for(Thread thread : threads){
-                if(thread.isAlive() && !isAlive){
-                    isAlive = true;
-                }
-            }
-        }
     }
 }
 
