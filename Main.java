@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        double start = System.currentTimeMillis();
         LinkedList<Stock> head = new LinkedList<Stock>();
         try {
             initialize(head);
@@ -19,6 +20,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        System.out.println(""+(System.currentTimeMillis()-start));
     }
 
     static void initialize(LinkedList<Stock> stocks) throws MalformedURLException, FileNotFoundException{
