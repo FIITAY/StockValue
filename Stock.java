@@ -2,11 +2,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Date;
 
 public class Stock {
+    private final int MINUTES_DIFFERENCE = 10;
     private String name;
     private URL investingURL;
     private int amount;
@@ -32,7 +34,28 @@ public class Stock {
         getCurValue();
     }
 
-    private final int MINUTES_DIFFERENCE = 10;
+    public Stock(String line) throws MalformedURLException{
+        String[] splited = line.split(",");
+        this.name = "";
+        this.investingURL = new URL(splited[0]);
+        this.amount = Integer.parseInt(splited[1]);
+        this.bought = Double.parseDouble(splited[2]);
+        curValue = -1;
+        getCurValue();
+    }
+
+    /**
+     * copy constructor
+     * @param copy
+     */
+    public Stock(Stock copy){
+        this.name = new String(copy.name);
+        this.investingURL = copy.investingURL;
+        this.amount = copy.amount;
+        this.bought = copy.bought;
+        this.curValue = copy.curValue;
+        this.lastUpdate = copy.lastUpdate;
+    }
 
     /**
      * check if there is need to update cur value, if not return the old value
@@ -123,19 +146,7 @@ public class Stock {
 
     @Override
     public String toString(){
-        String out = name + "\t"+"amount: "+amount+"\t";
-        getCurValue();
-        if(curValue != -1){
-            out += "rate: "+curValue+"\t";
-            double worth =  ((int)(amount*curValue/100 * 100)) / 100.0;
-            out += "worth: "+worth+"\t"
-                    +"gained: "+(((int)((worth-bought)*100))/100.0);
-        }else{
-            out += "rate: "+"ERROR"+"\t";
-            out += "worth: "+"ERROR"+"\t"
-                    +"gained: "+"ERROR";
-        }
-        return out;
+        return ""+investingURL.toString()+","+amount+","+bought;
     }
 }
 
