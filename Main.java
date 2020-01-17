@@ -14,6 +14,7 @@ public class Main {
         }catch (FileNotFoundException f){
             System.out.println("check file exsistance");
         }
+
         JFrame frame = new JFrame("Stocks");
         JScrollPane sp = new JScrollPane(new ShowInfo(head).getTbInfo());
         frame.add(sp);
@@ -27,9 +28,27 @@ public class Main {
         //initialize from file
         File file = new File("stocks.dt");
         Scanner scan = new Scanner(file);
+        LinkedList<Thread> threads = new LinkedList<Thread>();
         while(scan.hasNext()){
             String line = scan.nextLine();
-            stocks.add(new Stock(line));
+            Thread t = new Thread(() -> {
+                try{stocks.add(new Stock(line));
+                }catch (MalformedURLException m){
+                    //nothing
+                }
+            });
+            t.start();
+            threads.add(t);
+        }
+        boolean isAlive = true;
+        while(isAlive){
+            isAlive = false;
+            //check if one of the threads is alive continue to the next iteration to wait for all of them
+            for(Thread thread : threads){
+                if(thread.isAlive() && !isAlive){
+                    isAlive = true;
+                }
+            }
         }
     }
 }
