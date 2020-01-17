@@ -21,7 +21,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        System.out.printf(""+(System.currentTimeMillis()-start));
+        System.out.println(""+(System.currentTimeMillis()-start));
     }
 
     static void initialize(LinkedList<Stock> stocks) throws MalformedURLException, FileNotFoundException{
