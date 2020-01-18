@@ -37,8 +37,12 @@ public class ShowInfo {
     }
 
     public void notify(Stock stock){
+        notify(parseStock(stock));
+    }
+
+    public void notify(String[] summery){
         DefaultTableModel model = (DefaultTableModel) tbInfo.getModel();
-        model.addRow(parseStock(stock));
+        model.addRow(summery);
         frame.revalidate();
         frame.repaint();
     }

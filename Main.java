@@ -45,6 +45,24 @@ public class Main {
             t.start();
             threads.add(t);
         }
+
+        //wait for all threads to finish
+        boolean isAlive = true;
+        while(isAlive){
+            isAlive = false;
+            for (int i = 0; i < threads.size() && !isAlive; i++) {
+                isAlive = threads.get(i).isAlive();
+            }
+        }
+        //all thread finished, sum every thing up to make summery
+        //the amount and rate arent interesting
+        double sumBought = 0;
+        double sumWorth = 0;
+        for (Stock s : stocks){
+            sumBought+=s.getBought();
+            sumWorth += ((int)(s.getAmount()*s.getCurValue()/100 * 100)) / 100.0;
+        }
+        si.notify(new String[]{"Summery","-","-",""+sumWorth,""+(((int)((sumWorth-sumBought)*100))/100.0)});
     }
 }
 
