@@ -1,9 +1,5 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ShowInfo {
@@ -45,5 +41,12 @@ public class ShowInfo {
         model.addRow(summery);
         frame.revalidate();
         frame.repaint();
+    }
+
+    public void reset(){
+        DefaultTableModel dm = (DefaultTableModel) tbInfo.getModel();
+        for (int i= dm.getRowCount() -1; i>=0;i--){
+            dm.removeRow(i);
+        }
     }
 }

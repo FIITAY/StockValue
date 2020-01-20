@@ -4,8 +4,8 @@ import java.net.MalformedURLException;
 import java.util.*;
 
 public class Main {
+    public static final int CLOCK_CYCLE_MILLIS = 300000;
     public static void main(String[] args) {
-        double start = System.currentTimeMillis();
         LinkedList<Stock> head = new LinkedList<>();
         //make the view
         JFrame frame = new JFrame("Stocks");
@@ -16,17 +16,24 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
         //initialize the list
-        try {
-            initialize(head,si);
-        }catch (MalformedURLException m){
-            System.out.println("check URLS");
-        }catch (FileNotFoundException f){
-            System.out.println("check file exsistance");
-        }
-        System.out.println(""+(System.currentTimeMillis()-start));
+        new Thread(()-> {
+            while(true){
+                si.reset();
+                try {
+                    initialize(head,si);
+                }catch (FileNotFoundException f){
+                    System.out.println("check file exsistance");
+                }
+                try {
+                    Thread.sleep(CLOCK_CYCLE_MILLIS);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
-    static void initialize(LinkedList<Stock> stocks, ShowInfo si) throws MalformedURLException, FileNotFoundException{
+    static void initialize(LinkedList<Stock> stocks, ShowInfo si) throws FileNotFoundException{
         //initialize from file
         File file = new File("stocks.dt");
         Scanner scan = new Scanner(file);

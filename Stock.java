@@ -8,7 +8,6 @@ import java.net.URLConnection;
 import java.util.Date;
 
 public class Stock {
-    private final int MINUTES_DIFFERENCE = 10;
     private String name;
     private URL investingURL;
     private int amount;
@@ -63,7 +62,7 @@ public class Stock {
      */
     public double getCurValue(){
         if(curValue != -1){
-            if(lastUpdate != null && ((new Date()).getTime() - lastUpdate.getTime()) > MINUTES_DIFFERENCE*60*1000){
+            if(lastUpdate != null && ((new Date()).getTime() - lastUpdate.getTime()) > Main.CLOCK_CYCLE_MILLIS){
                 updateCurValue();
             }
         }else{
