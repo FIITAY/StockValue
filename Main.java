@@ -16,21 +16,34 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
         //initialize the list
+        try {
+            initialize(head,si);
+        }catch (FileNotFoundException f){
+            System.out.println("check file exsistance");
+        }
+        //add a clock
         new Thread(()-> {
             while(true){
-                si.reset();
-                try {
-                    initialize(head,si);
-                }catch (FileNotFoundException f){
-                    System.out.println("check file exsistance");
-                }
-                try {
+                try{
                     Thread.sleep(CLOCK_CYCLE_MILLIS);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                }catch (InterruptedException exception){
+                    break;
                 }
+                si.reset();
+                update(head, si);
+
             }
         }).start();
+    }
+
+    static void update(LinkedList<Stock> stocks, ShowInfo si){
+        LinkedList<Thread> threads = new LinkedList<>();
+        for(Stock s: stocks){
+            Thread t = new Thread(()->si.notify(s));
+            t.start();
+            threads.add(t);
+        }
+        summery(threads,stocks,si);
     }
 
     static void initialize(LinkedList<Stock> stocks, ShowInfo si) throws FileNotFoundException{
@@ -52,7 +65,11 @@ public class Main {
             t.start();
             threads.add(t);
         }
+        summery(threads,stocks,si);
 
+    }
+
+    private static void summery(LinkedList<Thread> threads, LinkedList<Stock> stocks, ShowInfo si){
         //wait for all threads to finish
         boolean isAlive = true;
         while(isAlive){
