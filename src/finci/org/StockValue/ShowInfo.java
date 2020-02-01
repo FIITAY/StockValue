@@ -19,7 +19,7 @@ public class ShowInfo {
         return tbInfo;
     }
 
-    private String[] parseStock(Stock stock){
+    public String[] parseStock(Stock stock){
         String[] out = new String[5];
         int amount = stock.getAmount();
         double curValue = stock.getCurValue();
