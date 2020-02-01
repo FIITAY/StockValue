@@ -1,9 +1,9 @@
 package finci.org.StockValue;
-
 import javax.swing.*;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.util.*;
+
 
 public class Main {
     public static final int CLOCK_CYCLE_MILLIS = 300000;

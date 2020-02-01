@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="StockValue:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3834558d-0a71-43b8-9cc4-4db5233b2db1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finci/org/StockValue/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finci/org/StockValue/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finci/org/StockValue/ShowInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finci/org/StockValue/ShowInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finci/org/StockValue/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finci/org/StockValue/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finci/org/StockValue/ValueNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finci/org/StockValue/ValueNotFoundException.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XDKDRB4O1cdXt1DUlifd2Y8Jv5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="stockvalue" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Manifest" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/finci/org/StockValue" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="copyright.profiles" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/finci/org/StockValue" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="StockValue" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="560" y="183" key="#Project_Structure" timestamp="1580575927218">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="560" y="183" key="#Project_Structure/0.23.1920.989@0.23.1920.989" timestamp="1580575927218" />
+    <state x="697" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580576439955">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="697" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1920.989@0.23.1920.989" timestamp="1580576439955" />
+    <state x="748" y="384" width="423" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580575717912">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="748" y="384" width="423" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1920.989@0.23.1920.989" timestamp="1580575717912" />
+    <state x="448" y="99" width="1326" height="837" key="SettingsEditor" timestamp="1580577207090">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="448" y="99" width="1326" height="837" key="SettingsEditor/0.23.1920.989@0.23.1920.989" timestamp="1580577207090" />
+    <state x="761" y="302" key="chooseDestDirectoryDialog" timestamp="1580575709643">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="761" y="302" key="chooseDestDirectoryDialog/0.23.1920.989@0.23.1920.989" timestamp="1580575709643" />
+    <state x="747" y="393" key="classpath-attribute-editor" timestamp="1580576272197">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="747" y="393" key="classpath-attribute-editor/0.23.1920.989@0.23.1920.989" timestamp="1580576272197" />
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1580577218814">
+      <screen x="0" y="23" width="1920" height="989" />
+    </state>
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup/0.23.1920.989@0.23.1920.989" timestamp="1580577218814" />
+  </component>
+</project>

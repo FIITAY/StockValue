@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StockValue:jar">
+    <output-path>$PROJECT_DIR$/currentJar</output-path>
+    <root id="archive" name="StockValue.jar">
+      <element id="module-output" name="StockValue" />
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,6 @@
+package finci.org.StockValue;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 
 public class ShowInfo {
     private JTable tbInfo;
