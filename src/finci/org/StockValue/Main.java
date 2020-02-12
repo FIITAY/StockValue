@@ -36,7 +36,6 @@ public class Main {
                 }
                 si.reset();
                 update(head, si);
-
             }
         }).start();
     }
@@ -69,54 +68,52 @@ public class Main {
     static void update(LinkedList<Stock> stocks, ShowInfo si){
         LinkedList<Thread> threads = new LinkedList<>();
         for(Stock s: stocks){
-            Thread t = new Thread(()->si.notify(s));
+            Thread t = new Thread(()->{
+                s.getCurValue();
+                synchronized (si){
+                    si.notify(s);
+                }});
             t.start();
             threads.add(t);
         }
-        summery(threads,stocks,si);
+        for(Thread t: threads){
+            try {
+                t.join();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
-    static void initialize(LinkedList<Stock> stocks, ShowInfo si) throws FileNotFoundException{
+    static void initialize(LinkedList<Stock> stocks,ShowInfo si) throws FileNotFoundException{
         //initialize from file
         File file = new File(fileIn);
         Scanner scan = new Scanner(file);
         LinkedList<Thread> threads = new LinkedList<>();
+        //get all of the stocks
         while(scan.hasNext()){
             String line = scan.nextLine();
             Thread t = new Thread(() -> {
-                try{
-                    Stock newS  = new Stock(line);
-                    si.notify(newS);
+                try {
+                    Stock newS = new Stock(line);
                     stocks.add(newS);
-                }catch (MalformedURLException m){
-                    //nothing
+                    synchronized (si) {
+                        si.notify(newS);
+                    }
+                }catch (MalformedURLException mue){
+                    mue.printStackTrace();
                 }
             });
             t.start();
             threads.add(t);
         }
-        summery(threads,stocks,si);
-
-    }
-
-    private static void summery(LinkedList<Thread> threads, LinkedList<Stock> stocks, ShowInfo si){
-        //wait for all threads to finish
-        boolean isAlive = true;
-        while(isAlive){
-            isAlive = false;
-            for (int i = 0; i < threads.size() && !isAlive; i++) {
-                isAlive = threads.get(i).isAlive();
+        for(Thread t: threads){
+            try {
+                t.join();
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
-        //all thread finished, sum every thing up to make summery
-        //the amount and rate arent interesting
-        double sumBought = 0;
-        double sumWorth = 0;
-        for (Stock s : stocks){
-            sumBought+=s.getBought();
-            sumWorth += ((int)(s.getAmount()*s.getCurValue()/100 * 100)) / 100.0;
-        }
-        si.notify(new String[]{"Summery","-","-",""+sumWorth,""+(((int)((sumWorth-sumBought)*100))/100.0)});
     }
 }
 
